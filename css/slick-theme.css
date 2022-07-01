@@ -1,0 +1,98 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.slick-prev{
+    position: absolute;
+    top: 0;
+	right:60px;
+	text-indent:-9999px;
+	background-color:transparent;
+    cursor: pointer;
+    border: none;
+    outline: none;
+	background-image:url(../images/prev.png);
+	background-repeat:no-repeat;
+	background-size:cover;
+	height:50px;
+	width:50px;
+    z-index: 999;
+}
+.slick-next{
+    position: absolute;
+    top: 0;
+	right:0;
+	text-indent:-9999px;
+	background-color:transparent;
+    cursor: pointer;
+    border: none;
+    outline: none;
+	background-image:url(../images/next.png);
+	background-repeat:no-repeat;
+	background-size:cover;
+	height:50px;
+	width:50px;
+    z-index: 999;
+}
+/* Dots */
+.slick-dots {
+	display:none;
+
+}
+.slick-dots li{
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 3px;
+    padding: 0;
+    cursor: pointer;
+	float:none;
+}
+.slick-dots li button{
+	display:none;
+}
+.slick-dots li button:hover,
+.slick-dots li button:focus{
+    outline: none;
+}
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before
+{
+    opacity: 1;
+}
+.slick-dots li button:before
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+	border-radius:50%;
+    content: '';
+	background-color:#cccccc;
+    text-align: center;
+    color: black;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.slick-dots li.slick-active button:before{
+	background-color:#00a3af;
+	opacity:1;
+	border-radius:50%;
+}
+
+
+@media only screen and (max-width:740px){
+.slick-prev{
+	right:40px;
+	height:30px;
+	width:30px;
+}
+.slick-next{
+	height:30px;
+	width:30px;
+}
+    
+}
+
