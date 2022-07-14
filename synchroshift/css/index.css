@@ -1469,7 +1469,7 @@ header {
   font-size: 42px;
   z-index: 550;
   line-height: 1.3em;
-  color: #FFF;
+  text-shadow: -1px -1px 0 #fff45c, 1px -1px 0 #fff45c, -1px 1px 0 #fff45c, 1px 1px 0 #fff45c;
 }
 
 .plan_table {
@@ -1493,7 +1493,7 @@ header {
   content: "";
   width: 37.5%;
   background-color: #000;
-  opacity: 0.4;
+  opacity: 0.2;
   position: absolute;
   right: 0;
   top: 0;
