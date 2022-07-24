@@ -83,6 +83,9 @@ getLabel = (el) => {
     return label;
 }
 
+const industry = document.getElementById('Industry');
+const useTablePlan = document.getElementById('LEADCF8');
+const useTm = document.getElementById('LEADCF9');
 const useTmPlan = document.getElementById('LEADCF10');
 const pickupTm = document.getElementById('LEADCF11');
 const otherTm = document.getElementById('LEADCF7');
@@ -96,7 +99,6 @@ optionSelectorAllClose = () => {
 optionSelectorAllClose();
 
 /** 利用中の勤怠システム選択時のイベント処理 */
-const useTm = document.getElementById('LEADCF9');
 useTm.addEventListener('change', (ev) => {
     optionSelectorAllClose();
     if (useTm.value === 'あり') {
@@ -125,7 +127,7 @@ pickupTm.addEventListener('change', (ev) => {
 /** オプション選択項目の必須入力チェックを行う */
 const customRequireCheck = () => {
     const isDefaltSelected = (el) => {
-        return el.options[el.selectedIndex].value === '-None-'
+        return el.options[el.selectedIndex].value === ''
     };
     const isEmpty = (el) => {
         return (((el.value).replace(/^\s+|\s+$/g, '')).length == 0);
@@ -134,6 +136,15 @@ const customRequireCheck = () => {
         alert(getLabel(el)+' は入力必須です。'); 
         el.focus();
         return false;
+    }
+    if (isDefaltSelected(industry)) {
+        return  errorProc(industry);
+    }
+    if (isDefaltSelected(useTablePlan)) {
+        return  errorProc(useTablePlan);
+    }
+    if (isDefaltSelected(useTm)) {
+        return  errorProc(useTm);
     }
     if (isOpenBlock(useTmPlan) && isDefaltSelected(useTmPlan)) {
         return errorProc(useTmPlan);

@@ -28,6 +28,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   border-radius: 5px;
   position: relative;
   z-index: 1;
+  /* -webkit-appearance: none; */
+  /* -moz-appearance: none; */
+  border-color: #eeeeee;
 }
 
 .select::after {
@@ -194,8 +197,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 <p class="c_cell1">業界<span class="hissu">必須</span></p>
                                 <div  class="c_cell2">
                                     <select class='select' id='Industry' name='Industry'>
-                                        <option value='-None-'>-None-</option>
-                                        <!-- <option></option> -->
+                                        <!-- <option value='-None-'>-None-</option> -->
+                                        <option></option>
                                         <option value='&#x4ecb;&#x8b77;&#x4e8b;&#x696d;&#x8005;'>&#x4ecb;&#x8b77;&#x4e8b;&#x696d;&#x8005;</option>
                                         <option value='&#x533b;&#x7642;&#x6cd5;&#x4eba;'>&#x533b;&#x7642;&#x6cd5;&#x4eba;</option>
                                         <option value='&#x653f;&#x5e9c;&#xff0f;&#x5730;&#x65b9;&#x516c;&#x5171;&#x56e3;&#x4f53;'>&#x653f;&#x5e9c;&#xff0f;&#x5730;&#x65b9;&#x516c;&#x5171;&#x56e3;&#x4f53;</option>
@@ -209,8 +212,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 <p class="c_cell1 pt-0">常勤換算表作成機能の<br>利用予定<span class="hissu">必須</span></p>
                                 <div  class="c_cell2">
                                     <select class='select' id='LEADCF8' name='LEADCF8'>
-                                        <option value='-None-'>-None-</option>
-                                        <!-- <option></option> -->
+                                        <!-- <option value='-None-'>-None-</option> -->
+                                        <option></option>
                                         <option value='&#x3042;&#x308a;'>&#x3042;&#x308a;</option>
                                         <option value='&#x306a;&#x3057;'>&#x306a;&#x3057;</option>
                                     </select><div class='zcwf_col_help'></div>
@@ -220,8 +223,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 <p class="c_cell1">利用中の勤怠システム<span class="hissu">必須</span></p>
                                 <div class="c_cell2">
                                     <select class='select' id='LEADCF9' name='LEADCF9'>
-                                        <option value='-None-'>-None-</option>
-                                        <!-- <option></option> -->
+                                        <!-- <option value='-None-'>-None-</option> -->
+                                        <option></option>
                                         <option value='&#x3042;&#x308a;'>&#x3042;&#x308a;</option>
                                         <option value='&#x306a;&#x3057;'>&#x306a;&#x3057;</option>
                                     </select>
@@ -232,8 +235,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 <p class="c_cell1">&#x52e4;&#x6020;&#x30b7;&#x30b9;&#x30c6;&#x30e0;&#x5229;&#x7528;&#x4e88;&#x5b9a;<span class="hissu">必須</span></p>
                                 <div class="c_cell2">
                                     <select class='select' id='LEADCF10' name='LEADCF10'>
-                                        <option value='-None-'>-None-</option>
-                                        <!-- <option></option> -->
+                                        <!-- <option value='-None-'>-None-</option> -->
+                                        <option></option>
                                         <option value='&#x3042;&#x308a;'>&#x3042;&#x308a;</option>
                                         <option value='&#x306a;&#x3057;'>&#x306a;&#x3057;</option>
                                     </select><div class='zcwf_col_help'></div>
@@ -244,11 +247,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 <p class="c_cell1">&#x52e4;&#x6020;&#x30b7;&#x30b9;&#x30c6;&#x30e0;&#x540d;<span class="hissu">必須</span></p>
                                 <div class='c_cell2'>
                                     <select class='select' id='LEADCF11' name='LEADCF11'  >
-                                        <option value='-None-'>-None-</option>
-                                        <!-- <option></option> -->
+                                        <!-- <option value='-None-'>-None-</option> -->
+                                        <option></option>
                                         <option value='HRMOS&#xff08;&#x30cf;&#x30fc;&#x30e2;&#x30b9;&#xff09;&#x52e4;&#x6020;'>HRMOS&#xff08;&#x30cf;&#x30fc;&#x30e2;&#x30b9;&#xff09;&#x52e4;&#x6020;</option>
                                         <option value='&#x305d;&#x306e;&#x4ed6;'>&#x305d;&#x306e;&#x4ed6;</option>
-                                    </select><div class='zcwf_col_help'></div>
+                                    </select>
+                                    <div><span class="c_cell2_help">利用中、または利用予定の勤怠システムを選択してください。</span></div>
                                 </div>
                             </div>
                             <div>
@@ -325,105 +329,121 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     </div>
 
     <script>
-        function privacyAlert5302731000000703030()
-        {
-            var privacyTool = document.getElementById('privacyTool5302731000000703030');
-            var privacyErr = document.getElementById('privacyErr5302731000000703030');
-            if(privacyTool !=undefined && !privacyTool.checked )
-            {
-                privacyErr.style.visibility='visible';
-                privacyTool.focus();
-                return false;
-            }
-            return true;
+function privacyAlert5302731000000703030() {
+  var privacyTool = document.getElementById("privacyTool5302731000000703030");
+  var privacyErr = document.getElementById("privacyErr5302731000000703030");
+  if (privacyTool != undefined && !privacyTool.checked) {
+    privacyErr.style.visibility = "visible";
+    privacyTool.focus();
+    return false;
+  }
+  return true;
+}
+function disableErr5302731000000703030() {
+  var privacyTool = document.getElementById("privacyTool5302731000000703030");
+  var privacyErr = document.getElementById("privacyErr5302731000000703030");
+  if (
+    privacyTool != undefined &&
+    privacyTool.checked &&
+    privacyErr != undefined
+  ) {
+    privacyErr.style.visibility = "hidden";
+  }
+}
+function validateEmail5302731000000703030() {
+  var form = document.forms["WebToLeads5302731000000703030"];
+  var emailFld = form.querySelectorAll("[ftype=email]");
+  var i;
+  for (i = 0; i < emailFld.length; i++) {
+    var emailVal = emailFld[i].value;
+    if (emailVal.replace(/^\s+|\s+$/g, "").length != 0) {
+      var atpos = emailVal.indexOf("@");
+      var dotpos = emailVal.lastIndexOf(".");
+      if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= emailVal.length) {
+        alert("有効なメールアドレスを入力してください。 ");
+        emailFld[i].focus();
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
+function checkMandatory5302731000000703030() {
+  var mndFileds = new Array(
+    "Company",
+    "First Name",
+    "Last Name",
+    "Email",
+    "LEADCF1",
+    "LEADCF2"
+  );
+  var fldLangVal = new Array(
+    "\u4F1A\u793E\u540D",
+    "\u540D",
+    "\u59D3",
+    "\u30E1\u30FC\u30EB",
+    "\u59D3\uFF08\u30AB\u30CA\uFF09",
+    "\u540D\uFF08\u30AB\u30CA\uFF09"
+  );
+  for (i = 0; i < mndFileds.length; i++) {
+    var fieldObj =
+      document.forms["WebToLeads5302731000000703030"][mndFileds[i]];
+    if (fieldObj) {
+      if (fieldObj.value.replace(/^\s+|\s+$/g, "").length == 0) {
+        if (fieldObj.type == "file") {
+          alert("アップロードするファイルを選択してください。");
+          fieldObj.focus();
+          return false;
         }
-        function disableErr5302731000000703030()
-        {
-            var privacyTool = document.getElementById('privacyTool5302731000000703030');
-            var privacyErr = document.getElementById('privacyErr5302731000000703030');
-            if(privacyTool !=undefined && privacyTool.checked && privacyErr !=undefined )
-            {
-                privacyErr.style.visibility='hidden';
-            }
+        alert(fldLangVal[i] + " は入力必須です。");
+        fieldObj.focus();
+        return false;
+      } else if (fieldObj.nodeName == "SELECT") {
+        if (fieldObj.options[fieldObj.selectedIndex].value == "-None-") {
+          alert(fldLangVal[i] + " は入力必須です。");
+          fieldObj.focus();
+          return false;
         }
-        function validateEmail5302731000000703030()
-        {
-            var form = document.forms['WebToLeads5302731000000703030'];
-            var emailFld = form.querySelectorAll('[ftype=email]');
-            var i;
-            for (i = 0; i < emailFld.length; i++)
-            {
-                var emailVal = emailFld[i].value;
-                if((emailVal.replace(/^\s+|\s+$/g, '')).length!=0 )
-                {
-                    var atpos=emailVal.indexOf('@');
-                    var dotpos=emailVal.lastIndexOf('.');
-                    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=emailVal.length)
-                    {
-                        alert('有効なメールアドレスを入力してください。 ');
-                        emailFld[i].focus();
-                        return false;
-                    }
-                }
-            }
-            return true;
+      } else if (fieldObj.type == "checkbox") {
+        if (fieldObj.checked == false) {
+          alert("Please accept  " + fldLangVal[i]);
+          fieldObj.focus();
+          return false;
         }
-  
-        function checkMandatory5302731000000703030() {
-		  var mndFileds = new Array('Company','First Name','Last Name','Email','Industry','LEADCF1','LEADCF2','LEADCF8','LEADCF9');
-		  var fldLangVal = new Array('\u4F1A\u793E\u540D','\u540D','\u59D3','\u30E1\u30FC\u30EB','\u696D\u754C','\u59D3\uFF08\u30AB\u30CA\uFF09','\u540D\uFF08\u30AB\u30CA\uFF09','\u5E38\u52E4\u63DB\u7B97\u8868\u4F5C\u6210\u6A5F\u80FD\u306E\u5229\u7528\u4E88\u5B9A','\u5229\u7528\u4E2D\u306E\u52E4\u6020\u30B7\u30B9\u30C6\u30E0');
-		  for(i=0;i<mndFileds.length;i++) {
-			var fieldObj=document.forms['WebToLeads5302731000000703030'][mndFileds[i]];
-			if(fieldObj) {
-			  if (((fieldObj.value).replace(/^\s+|\s+$/g, '')).length==0) {
-			   if(fieldObj.type =='file')
-				  { 
-				   alert('アップロードするファイルを選択してください。'); 
-				   fieldObj.focus(); 
-				   return false;
-				  } 
-			  alert(fldLangVal[i] +' は入力必須です。'); 
-						fieldObj.focus();
-						return false;
-			  }  else if(fieldObj.nodeName=='SELECT') {
-					   if(fieldObj.options[fieldObj.selectedIndex].value=='-None-') {
-				  alert(fldLangVal[i] +' は入力必須です。'); 
-				  fieldObj.focus();
-				  return false;
-				 }
-			  } else if(fieldObj.type =='checkbox'){
-				  if(fieldObj.checked == false){
-				  alert('Please accept  '+fldLangVal[i]);
-				  fieldObj.focus();
-				  return false;
-				 } 
-			   } 
-			   try {
-				   if(fieldObj.name == 'Last Name') {
-				  name = fieldObj.value;
-					 }
-			  } catch (e) {}
-			  }
-		  }
-		  if(!validateEmail5302731000000703030()){return false;}
-		  
-		  if(!privacyAlert5302731000000703030()){return false;}
-		  document.querySelector('.crmWebToEntityForm .formsubmit').setAttribute('disabled', true);
-	    }
-  
-        function tooltipShow5302731000000703030(el){
-            var tooltip = el.nextElementSibling;
-            var tooltipDisplay = tooltip.style.display;
-            if(tooltipDisplay == 'none'){
-                var allTooltip = document.getElementsByClassName('zcwf_tooltip_over');
-                for(i=0; i<allTooltip.length; i++){
-                    allTooltip[i].style.display='none';
-                }
-                tooltip.style.display = 'block';
-            }else{
-                tooltip.style.display='none';
-            }
+      }
+      try {
+        if (fieldObj.name == "Last Name") {
+          name = fieldObj.value;
         }
+      } catch (e) {}
+    }
+  }
+  if (!validateEmail5302731000000703030()) {
+    return false;
+  }
+
+  if (!privacyAlert5302731000000703030()) {
+    return false;
+  }
+  document
+    .querySelector(".crmWebToEntityForm .formsubmit")
+    .setAttribute("disabled", true);
+}
+
+function tooltipShow5302731000000703030(el) {
+  var tooltip = el.nextElementSibling;
+  var tooltipDisplay = tooltip.style.display;
+  if (tooltipDisplay == "none") {
+    var allTooltip = document.getElementsByClassName("zcwf_tooltip_over");
+    for (i = 0; i < allTooltip.length; i++) {
+      allTooltip[i].style.display = "none";
+    }
+    tooltip.style.display = "block";
+  } else {
+    tooltip.style.display = "none";
+  }
+}
     </script>
 	  <!-- Do not remove this --- Analytics Tracking code starts --><script id='wf_anal' src='https://crm.zohopublic.com/crm/WebFormAnalyticsServeServlet?rid=5f0957e719dece60b4af3d8879616784af3103c67f99721bad317291bea354d6gid66c4db33fb74c6bb4296ef42797828ac52b4f03d84904a97232a335af6da9edegid885e3c1045bd9bdcc91bdf30f82b5696gid14f4ec16431e0686150daa43f3210513&tw=61690b96c1d0471b638f31426f38e68aa67fb7ed6da86f32dc10ad817fe55a0a'></script><!-- Do not remove this --- Analytics Tracking code ends. --></form>
                 </form>            
