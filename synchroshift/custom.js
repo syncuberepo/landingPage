@@ -128,6 +128,7 @@ if (industry !== null) {
 
 /** オプション選択項目の必須入力チェックを行う */
 const customRequireCheck = () => {
+    // 業界が存在する場合のみチェックを実施。
     if (industry === null) {
         return true;
     }
