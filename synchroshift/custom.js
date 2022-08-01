@@ -96,36 +96,41 @@ optionSelectorAllClose = () => {
     closeBlock(pickupTm);
     closeBlock(otherTm);
 };
-optionSelectorAllClose();
 
-/** 利用中の勤怠システム選択時のイベント処理 */
-useTm.addEventListener('change', (ev) => {
+if (industry !== null) {
     optionSelectorAllClose();
-    if (useTm.value === 'あり') {
-        openBlock(pickupTm);
-    }
-    if (useTm.value === 'なし') {
-        openBlock(useTmPlan);
-    }
-});
-/** 勤怠システム利用予定選択時のイベント処理 */
-useTmPlan.addEventListener('change', (ev) => {
-    closeBlock(pickupTm);
-    closeBlock(otherTm);
-    if (useTmPlan.value === 'あり') {
-        openBlock(pickupTm);
-    }
-});
-/** 勤怠システム名選択時のイベント処理 */
-pickupTm.addEventListener('change', (ev) => {
-    closeBlock(otherTm);
-    if (pickupTm.value === 'その他') {
-        openBlock(otherTm);
-    }
-});
+    /** 利用中の勤怠システム選択時のイベント処理 */
+    useTm.addEventListener('change', (ev) => {
+        optionSelectorAllClose();
+        if (useTm.value === 'あり') {
+            openBlock(pickupTm);
+        }
+        if (useTm.value === 'なし') {
+            openBlock(useTmPlan);
+        }
+    });
+    /** 勤怠システム利用予定選択時のイベント処理 */
+    useTmPlan.addEventListener('change', (ev) => {
+        closeBlock(pickupTm);
+        closeBlock(otherTm);
+        if (useTmPlan.value === 'あり') {
+            openBlock(pickupTm);
+        }
+    });
+    /** 勤怠システム名選択時のイベント処理 */
+    pickupTm.addEventListener('change', (ev) => {
+        closeBlock(otherTm);
+        if (pickupTm.value === 'その他') {
+            openBlock(otherTm);
+        }
+    });
+}
 
 /** オプション選択項目の必須入力チェックを行う */
 const customRequireCheck = () => {
+    if (industry === null) {
+        return true;
+    }
     const isDefaltSelected = (el) => {
         return el.options[el.selectedIndex].value === ''
     };
