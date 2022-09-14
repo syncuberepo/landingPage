@@ -710,6 +710,23 @@ header {
   left: 0;
   width: 100%;
   z-index: 999;
+  transition: 0.3s ease;
+}
+
+header.fadeOut {
+  opacity: 0;
+}
+
+header.fadeOut a {
+  pointer-events: none;
+}
+
+header.fadeIn {
+  opacity: 1;
+}
+
+header.fadeIn a {
+  pointer-events: auto;
 }
 
 .header_bg {
