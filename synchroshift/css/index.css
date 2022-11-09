@@ -710,23 +710,6 @@ header {
   left: 0;
   width: 100%;
   z-index: 999;
-  transition: 0.3s ease;
-}
-
-header.fadeOut {
-  opacity: 0;
-}
-
-header.fadeOut a {
-  pointer-events: none;
-}
-
-header.fadeIn {
-  opacity: 1;
-}
-
-header.fadeIn a {
-  pointer-events: auto;
 }
 
 .header_bg {
@@ -1225,13 +1208,19 @@ header.fadeIn a {
 
 /************/
 .flow_img {
-  margin-top: -120px;
+  margin-top: -40px;
   text-align: center;
 }
 
 .flow_img img {
   max-width: 100%;
   height: auto;
+}
+
+.top_line {
+  background: url("../images/top_line.png") 50% 0/1920px 57px no-repeat;
+  height: 57px;
+  margin: 100px 0;
 }
 
 /***********/
@@ -2704,6 +2693,9 @@ input[type="file"]::-webkit-file-upload-button {
   .merit_list h3 {
     padding: 10px 10px;
   }
+  .flow_img {
+    margin-top: 10px;
+  }
   /*********/
   .free_bg > div {
     padding-left: 0;
@@ -3467,6 +3459,9 @@ input[type="file"]::-webkit-file-upload-button {
     margin-bottom: 80px;
   }
   /************************/
+  header {
+    position: absolute;
+  }
   .logo {
     width: 200px;
   }
@@ -3700,9 +3695,6 @@ input[type="file"]::-webkit-file-upload-button {
     left: 0;
   }
   /************/
-  .flow_img {
-    margin-top: -40px;
-  }
   /***********/
   .slider.slider_style {
     margin-top: -32px;

@@ -213,6 +213,9 @@ h2,h3 {
 .order2 {
 	order:2;
 }
+.center {
+    text-align: center;
+}
 @media only screen and  (min-width: 1024px) {
 .lg\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
