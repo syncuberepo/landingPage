@@ -11,7 +11,7 @@ const numCheck = (el) => {
 };
 
 const kataValCheck = (val) => {
-    return ((! val) || val.match(/^[\u30a1-\u30f6]+$/) != null);
+    return ((! val) || val.match(/^[\u30a1-\u30f6\u30FC]+$/) != null);
 }
 
 const hiraValCheck = (val) => {
