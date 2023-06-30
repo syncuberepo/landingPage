@@ -59,24 +59,43 @@ $(function(){
     return false;
   });
 });
+$(function(){
+    var windowWidth = $(window).width();
+    var w_width = 740;
+	if (windowWidth <= w_width) {
+        var beforePos = 0;//スクロールの値の比較用の設定
 
-window.addEventListener('scroll', function () {
-    var cy_top = jQuery(document).scrollTop();
-    if(cy_top <= 0 ){
-        $(".cy_header").removeClass("fadeOut");
-        $(".cy_header").addClass("fadeIn");
-    }
-    window.onmousewheel = function(){
-        if(cy_top >= 1 ) {
-            if(event.wheelDelta > 0){
-                $(".cy_header").removeClass("fadeIn");
-                $(".cy_header").addClass("fadeOut");
-            }else{
-                $(".cy_header").removeClass("fadeOut");
-                $(".cy_header").addClass("fadeIn");
+        //スクロール途中でヘッダーが消え、上にスクロールすると復活する設定を関数にまとめる
+        function ScrollAnime() {
+            var scroll = $(window).scrollTop();
+            //ヘッダーの出し入れをする
+            if(scroll == beforePos) {
+                //IE11対策で処理を入れない
+            }else if(10 > scroll || 0 > scroll - beforePos){
+                //ヘッダーが上から出現する
+                $('.cy_header').removeClass('UpMove');	//#headerにUpMoveというクラス名を除き
+                $('.cy_header').addClass('DownMove');//#headerにDownMoveのクラス名を追加
+            }else {
+                //ヘッダーが上に消える
+                $('.cy_header').removeClass('DownMove');//#headerにDownMoveというクラス名を除き
+                $('.cy_header').addClass('UpMove');//#headerにUpMoveのクラス名を追加
             }
+
+            beforePos = scroll;//現在のスクロール値を比較用のbeforePosに格納
         }
+
+
+        // 画面をスクロールをしたら動かしたい場合の記述
+        $(window).scroll(function () {
+            ScrollAnime();//スクロール途中でヘッダーが消え、上にスクロールすると復活する関数を呼ぶ
+        });
+
+        // ページが読み込まれたらすぐに動かしたい場合の記述
+        $(window).on('load', function () {
+            ScrollAnime();//スクロール途中でヘッダーが消え、上にスクロールすると復活する関数を呼ぶ
+        });
     }
 });
+
 
 
