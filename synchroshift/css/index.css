@@ -710,6 +710,17 @@ header {
   left: 0;
   width: 100%;
   z-index: 999;
+  transition: 0.6s ease;
+}
+
+header.UpMove {
+  top: -80px;
+  opacity: 0;
+}
+
+header.DownMove {
+  top: 0;
+  opacity: 1;
 }
 
 .header_bg {
@@ -1561,7 +1572,6 @@ header {
   z-index: 500;
   border-radius: 0 10px 10px 0;
 } */
-
 .plan_table th, .plan_table td {
   border: 1px solid #b5b5b5;
   font-weight: bold;
@@ -1604,7 +1614,6 @@ header {
   border-right: 0;
   background-color: #fff2f5;
 } */
-
 /* .plan_table td:last-child:after {
   content: "";
   border: 3px solid #f22e7c;
@@ -1616,7 +1625,6 @@ header {
   width: 100%;
   height: calc(100% + 2px);
 } */
-
 .plan_table tr:nth-child(1) th {
   background-color: #4ba0aa;
   border-left: 0;
@@ -1649,7 +1657,6 @@ header {
   height: 100%;
   border-radius: 0 10px 0 0;
 } */
-
 .plan_table tr:nth-child(1) th, .plan_table tr:nth-child(1) td {
   font-size: 25px;
   color: #FFF;
@@ -1675,7 +1682,6 @@ header {
   position: absolute;
   border-radius: 0 0 10px 0;
 } */
-
 .plan_table .t16 {
   font-size: 16px;
 }
@@ -2280,6 +2286,17 @@ input[type="file"]::-webkit-file-upload-button {
     width: 120px;
     padding: 10px 0;
     font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .to_contact_sm a {
+    font-size: 17px;
+  }
+  .to_contact_sm a img {
+    right: 30px;
+    width: 10px;
+    height: auto;
   }
 }
 
@@ -2889,6 +2906,17 @@ input[type="file"]::-webkit-file-upload-button {
   .plan_table tr:nth-child(1) th, .plan_table tr:nth-child(1) td {
     font-size: 20px;
     padding: 30px 2px;
+  }
+  .to_contact_sm a {
+    font-size: 15px;
+    padding: 15px 5px 15px;
+    width: 80%;
+  }
+  .to_contact_sm a:hover {
+    background-color: #3ce696;
+  }
+  .to_contact_sm a img {
+    display: none;
   }
   /*********/
   .plan_img_list {
@@ -3514,7 +3542,7 @@ input[type="file"]::-webkit-file-upload-button {
   }
   /************************/
   header {
-    position: absolute;
+    position: fixed;
   }
   .logo {
     width: 200px;
@@ -3896,6 +3924,13 @@ input[type="file"]::-webkit-file-upload-button {
   .mini_text {
     font-size: 10px;
     margin-top: 25px;
+  }
+  .to_contact_sm a {
+    font-size: 13px;
+    padding: 15px 5px 15px;
+    width: 94%;
+    border-radius: 10px;
+    line-height: 1.3em;
   }
   /*********/
   .plan_midashi {

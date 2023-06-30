@@ -271,6 +271,11 @@ body {
     display: block;
 }
 
+.font_b {
+    font-family: 'NotoSansCJKjp-Regular', serif;
+    font-weight: normal;
+}
+
 }
 
 /* スマートフォン 縦(ポートレート) */
