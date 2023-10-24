@@ -1298,7 +1298,7 @@ header.DownMove {
 }
 
 .free_box h3 {
-  font-size: 45px;
+  font-size: 38px;
   font-weight: bold;
 }
 
@@ -1522,7 +1522,7 @@ header.DownMove {
 .plan_p3 {
   text-align: center;
   line-height: 1.3em;
-  font-size: 40px;
+  font-size: 32px;
   margin-top: 20px;
   font-weight: bold;
 }
@@ -3875,7 +3875,7 @@ input[type="file"]::-webkit-file-upload-button {
   }
   .plan_p3 {
     line-height: 1.5em;
-    font-size: 20px;
+    font-size: 18px;
     margin-top: 15px;
   }
   /*
