@@ -2046,6 +2046,17 @@ input[type="file"]::-webkit-file-upload-button {
   top: 0px;
 }
 
+.multi_pick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 8px;
+}
+
+.multi_pick label {
+  display: inline-flex;
+  gap: 4px;
+}
+
 /**************************************************************
 
     プライバシーポリシー
