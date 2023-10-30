@@ -183,18 +183,19 @@
       function setMultiSelectOption(id, obj) {
         var parentElement = document.getElementById(id);
         var hiddenInput = parentElement.querySelector("#hiddenoptions");
-        var selectAllElement = parentElement.querySelector("#selectall" + id);
+        // var selectAllElement = parentElement.querySelector("#selectall" + id);
         var selectedStr = hiddenInput.value;
         var selectedValues = selectedStr ? selectedStr.split(",") : [];
         if (obj.checked && obj.value) {
           selectedValues.push(obj.value);
         } else if (!obj.checked && obj.value) {
           selectedValues.splice(selectedValues.indexOf(obj.value), 1);
-          selectAllElement.checked = false;
+          // selectAllElement.checked = false;
         } else {
-          selectAllElement.checked = false;
+          // selectAllElement.checked = false;
         }
         hiddenInput.value = selectedValues.join(",");
+        console.log(hiddenInput.value);
       }
       var zctt = (function () {
         var tt,
@@ -610,31 +611,39 @@
                   想定サービス種別<span class="hissu">必須</span>
                 </p>
                 <div class="c_cell2">
-                  <select
-                    name="サービス種別"
-                    value=""
-                    class="manfieldbdr size"
-                    onchange="setDependent(this, false)"
-                    id="CASECF4"
-                  >
-                    <option value="">--未選択--</option>
-                    <option value="訪問看護">訪問看護</option>
-                    <option value="訪問介護">訪問介護</option>
-                    <option value="デイサービス">デイサービス</option>
-                    <option value="ショートステイ">ショートステイ</option>
-                    <option value="グループホーム">グループホーム</option>
-                    <option value="特養">特養</option>
-                    <option value="定期巡回ステーション">
-                      定期巡回ステーション
-                    </option>
-                    <option value="ヘルパーステーション">
-                      ヘルパーステーション
-                    </option>
-                    <option value="小規模多機能">小規模多機能</option>
-                    <option value="老健 (介護老人保健施設)">
-                      老健 (介護老人保健施設)
-                    </option>
-                  </select>
+                  <div class='wb_multi_pick multi_pick' id='CASECF41'>
+                    <input name='サービス種別' type='hidden' id='hiddenoptions'/>
+                    <label class='wb_multi_pick_label' for='訪問看護CASECF41'>
+                      <input type='checkbox' class='wb_multi_pick_input' onclick="setMultiSelectOption('CASECF41', this)" id='訪問看護CASECF41' value='訪問看護'>訪問看護</input>
+                    </label>
+                    <label class='wb_multi_pick_label' for='訪問介護CASECF41'>
+                      <input type='checkbox' class='wb_multi_pick_input' onclick="setMultiSelectOption('CASECF41', this)" id='訪問介護CASECF41' value='訪問介護'>訪問介護</input>
+                    </label>
+                    <label class='wb_multi_pick_label' for='デイサービスCASECF41'>
+                      <input type='checkbox' class='wb_multi_pick_input' onclick="setMultiSelectOption('CASECF41', this)" id='デイサービスCASECF41' value='デイサービス'>デイサービス</input>
+                    </label>
+                    <label class='wb_multi_pick_label' for='ショートステイCASECF41'>
+                      <input type='checkbox' class='wb_multi_pick_input' onclick="setMultiSelectOption('CASECF41', this)" id='ショートステイCASECF41' value='ショートステイ'>ショートステイ</input>
+                    </label>
+                    <label class='wb_multi_pick_label' for='グループホームCASECF41'>
+                      <input type='checkbox' class='wb_multi_pick_input' onclick="setMultiSelectOption('CASECF41', this)" id='グループホームCASECF41' value='グループホーム'>グループホーム</input>
+                    </label>
+                    <label class='wb_multi_pick_label' for='特養CASECF41'>
+                      <input type='checkbox' class='wb_multi_pick_input' onclick="setMultiSelectOption('CASECF41', this)" id='特養CASECF41' value='特養'>特養</input>
+                    </label>
+                    <label class='wb_multi_pick_label' for='定期巡回ステーションCASECF41'>
+                      <input type='checkbox' class='wb_multi_pick_input' onclick="setMultiSelectOption('CASECF41', this)" id='定期巡回ステーションCASECF41' value='定期巡回ステーション'>定期巡回ステーション</input>
+                    </label>
+                    <label class='wb_multi_pick_label' for='ヘルパーステーションCASECF41'>
+                      <input type='checkbox' class='wb_multi_pick_input' onclick="setMultiSelectOption('CASECF41', this)" id='ヘルパーステーションCASECF41' value='ヘルパーステーション'>ヘルパーステーション</input>
+                    </label>
+                    <label class='wb_multi_pick_label' for='小規模多機能CASECF41'>
+                      <input type='checkbox' class='wb_multi_pick_input' onclick="setMultiSelectOption('CASECF41', this)" id='小規模多機能CASECF41' value='小規模多機能'>小規模多機能</input>
+                    </label>
+                    <label class='wb_multi_pick_label' for='老健（介護老人保健施設）CASECF41'>
+                      <input type='checkbox' class='wb_multi_pick_input' onclick="setMultiSelectOption('CASECF41', this)" id='老健（介護老人保健施設）CASECF41' value='老健（介護老人保健施設）'>老健（介護老人保健施設）</input>
+                    </label>
+                  </div>
                 </div>
               </div>
               <div>
