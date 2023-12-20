@@ -702,6 +702,9 @@
   display: none;
 }
 
+.sp {
+  display: none;
+}
 /************************/
 header {
   background-color: #FFF;
@@ -1690,6 +1693,15 @@ header.DownMove {
   padding: 0;
   height: 90px;
   line-height: 1.2em;
+}
+
+.plan_table p.price {
+  line-height: 1.2;
+}
+
+.plan_table span.tax {
+  font-size: 16px;
+  font-weight: normal;
 }
 
 .mini_text {
@@ -2708,6 +2720,7 @@ input[type="file"]::-webkit-file-upload-button {
   .mb-300 {
     margin-bottom: 120px;
   }
+
   /************************/
   .header_bg {
     padding: 20px 0;
@@ -3550,6 +3563,9 @@ input[type="file"]::-webkit-file-upload-button {
   }
   .mb-300 {
     margin-bottom: 80px;
+  }
+  .sp {
+    display: block;
   }
   /************************/
   header {
