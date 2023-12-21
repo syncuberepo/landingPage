@@ -1695,10 +1695,6 @@ header.DownMove {
   line-height: 1.2em;
 }
 
-.plan_table p.price {
-  line-height: 1.2;
-}
-
 .plan_table span.tax {
   font-size: 16px;
   font-weight: normal;
@@ -4140,6 +4136,11 @@ input[type="file"]::-webkit-file-upload-button {
   }
   .thanks_p2 {
     font-size: 14px;
+  }
+
+  /************/
+  .plan_table p.price {
+    line-height: 1.2;
   }
 }
 
