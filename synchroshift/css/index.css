@@ -1698,6 +1698,7 @@ header.DownMove {
 .plan_table span.tax {
   font-size: 16px;
   font-weight: normal;
+  line-height: 1.8em;
 }
 
 .mini_text {
