@@ -705,6 +705,11 @@
 .sp {
   display: none;
 }
+
+.pc-flex-sp-block {
+  display: flex !important;
+}
+
 /************************/
 header {
   background-color: #FFF;
@@ -3563,6 +3568,9 @@ input[type="file"]::-webkit-file-upload-button {
   }
   .sp {
     display: block;
+  }
+  .pc-flex-sp-block {
+    display: block !important;
   }
   /************************/
   header {
