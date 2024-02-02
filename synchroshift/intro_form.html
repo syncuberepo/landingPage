@@ -29,6 +29,11 @@
     <link rel="stylesheet" href="scss/index.scss" type="text/css" />
     <link rel="stylesheet" href="css/cssmin.css" type="text/css" />
     <link href="css/spmenu.css" rel="stylesheet" type="text/css" />
+    <style>
+      .c_cell2_help {
+        font-size: 12px;
+      }
+    </style>
     <script src="https://d17nz991552y2g.cloudfront.net/app/js/jqueryandencoder.ffa5afd5124fbedceea9.js"></script>
     <script>
       function privacyAlert5302731000037999024() {
@@ -50,7 +55,7 @@
       }
 
       function checkMandatory5302731000037999024() {
-        var mndFileds = new Array('Company','First Name','Last Name','Designation','Email','Phone','Street','City','State','LEADCF9','LEADCF10','LEADCF13','LEADCF51');
+        var mndFileds = new Array('Company','First Name','Last Name','Designation','Email','Phone','Street','City','State','LEADCF9','LEADCF10','LEADCF13','LEADCF14','LEADCF15','LEADCF16','LEADCF51');
         var fldLangVal = new Array('\u3054\u7D39\u4ECB\u3044\u305F\u3060\u304F\u6CD5\u4EBA\u540D','\u3054\u7D39\u4ECB\u3044\u305F\u3060\u304F\u304A\u76F8\u624B\u306E\uFF08\u540D\uFF09','\u3054\u7D39\u4ECB\u3044\u305F\u3060\u304F\u304A\u76F8\u624B\u306E\uFF08\u59D3\uFF09','\u3054\u7D39\u4ECB\u3044\u305F\u3060\u304F\u304A\u76F8\u624B\u306E\u5F79\u8077','\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9','\u96FB\u8A71\u756A\u53F7','\u3054\u7D39\u4ECB\u3044\u305F\u3060\u304F\u6CD5\u4EBA\u306E\u4F4F\u6240\uFF08\u753A\u540D\u30FB\u756A\u5730\uFF09','\u3054\u7D39\u4ECB\u3044\u305F\u3060\u304F\u6CD5\u4EBA\u306E\u4F4F\u6240\uFF08\u5E02\u533A\u753A\u6751\uFF09','\u3054\u7D39\u4ECB\u3044\u305F\u3060\u304F\u6CD5\u4EBA\u306E\u4F4F\u6240\uFF08\u90FD\u9053\u5E9C\u770C\uFF09','\u3054\u5229\u7528\u4E2D\u306E\u52E4\u6020\u30B7\u30B9\u30C6\u30E0','\u52E4\u6020\u30B7\u30B9\u30C6\u30E0\u306E\u3054\u5229\u7528\u4E88\u5B9A','\u30B7\u30D5\u30C8\u4F5C\u6210\u30B7\u30B9\u30C6\u30E0','\u3054\u5229\u7528\u4E2D\u306E\u30B7\u30D5\u30C8\u4F5C\u6210\u30B7\u30B9\u30C6\u30E0','\u904B\u55B6\u3055\u308C\u3066\u3044\u308B\u4E8B\u696D\u6240\u6570');
         for (i=0; i<mndFileds.length; i++) {
           var fieldObj=document.forms['WebToLeads5302731000037999024'][mndFileds[i]];
@@ -65,7 +70,7 @@
               fieldObj.focus();
               return false;
             } else if (fieldObj.nodeName=='SELECT') {
-              if (fieldObj.options[fieldObj.selectedIndex].value=='-None-') {
+              if (fieldObj.options[fieldObj.selectedIndex].value=="") {
                 alert(fldLangVal[i] +' は入力必須です。');
                 fieldObj.focus();
                 return false;
@@ -115,33 +120,40 @@
     </script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        // クラスの追加・削除を切り替える関数
-        function toggleClass(selector, shouldAdd) {
+        function displayElement(selector, shouldDisplay) {
           const element = document.querySelector(selector);
-          if (shouldAdd) {
-            element.classList.add('pc-flex-sp-block');
-          } else {
-            element.classList.remove('pc-flex-sp-block');
-          }
+          element.classList.toggle('pc-flex-sp-block', shouldDisplay);
         }
-
         // 'LEADCF13'の変更を監視し、対応する要素のクラスを切り替え
         document.getElementById('LEADCF13').addEventListener('change', function () {
-          toggleClass('.js-LEADCF12', this.value === 'あり');
+          displayElement('.js-LEADCF12', this.value === 'あり');
         });
 
-        // 'LEADCF9'の変更に応じて複数の要素のクラスを切り替え
         document.getElementById('LEADCF9').addEventListener('change', function () {
-          const showOthers = this.value === 'あり';
-          toggleClass('.js-LEADCF10', this.value === 'なし');
-          toggleClass('.js-LEADCF11', showOthers);
-          // 'LEADCF11'が'その他'である場合にのみ'.js-LEADCF7'にクラスを追加
-          toggleClass('.js-LEADCF7', showOthers && document.getElementById('LEADCF11').value === 'その他');
+          // 「勤怠システムのご利用予定」を非表示にする
+          displayElement('.js-LEADCF10', false);
+          // 「勤怠システム名」を非表示にする
+          displayElement('.js-LEADCF11', false);
+          // 「勤怠システム」を非表示にする
+          displayElement('.js-LEADCF7', false);
+
+          if (this.value === 'あり') {
+            // 「勤怠システム名」を表示
+            displayElement('.js-LEADCF11', true);
+          } else if (this.value === 'なし') {
+            // 「勤怠システムのご利用予定」を表示
+            displayElement('.js-LEADCF10', true);
+          }
         });
 
-        // 'LEADCF11'の変更に応じて'.js-LEADCF7'のクラスを切り替え
+        document.getElementById('LEADCF10').addEventListener('change', function () {
+          // 「勤怠システム名」の表示を切り替える
+          displayElement('.js-LEADCF11', this.value === 'あり');
+        });
+
         document.getElementById('LEADCF11').addEventListener('change', function () {
-          toggleClass('.js-LEADCF7', this.value === 'その他');
+          // 「その他」が選択された場合にのみ、「勤怠システム」を表示
+          displayElement('.js-LEADCF7', this.value === 'その他');
         });
       });
     </script>
@@ -193,9 +205,31 @@
           <input type='text' style='display:none;' name='returnURL' value='https&#x3a;&#x2f;&#x2f;synchroseries.jp&#x2f;synchroshift&#x2f;intro_thanks.html' > </input>
           <div class="contact_form">
           <div>
+            <p class="c_cell1">ご紹介会社名<span class="hissu">必須</span></p>
+            <div class="c_cell2">
+              <input type='text' id='LEADCF16' name='LEADCF16' maxlength='200' class="manfieldbdr size"></input>
+              <div><span class="c_cell2_help">パートナー様の企業名を記載してください。</span></div>
+            </div>
+          </div>
+          <div>
+            <p class="c_cell1">ご紹介者名<span class="hissu">必須</span></p>
+            <div class="c_cell2">
+              <input type='text' id='LEADCF15' name='LEADCF15' maxlength='200' class="manfieldbdr size"></input>
+              <div><span class="c_cell2_help">パートナー様の氏名を記載してください。</span></div>
+            </div>
+          </div>
+          <div>
+            <p class="c_cell1">ご紹介者メールアドレス<span class="hissu">必須</span></p>
+            <div class="c_cell2">
+              <input type='text' id='LEADCF14' name='LEADCF14' maxlength='255' class="manfieldbdr size"></input>
+              <div><span class="c_cell2_help">パートナー様のメールアドレスを記載してください。</span></div>
+            </div>
+          </div>
+          <div>
             <p class="c_cell1">法人名<span class="hissu">必須</span></p>
             <div class="c_cell2">
               <input type='text' id='Company' name='Company' maxlength='200' class="manfieldbdr size"></input>
+              <div><span class="c_cell2_help">ご紹介先の法人名を記載してください。</span></div>
             </div>
           </div>
           <div>
@@ -217,7 +251,7 @@
             </div>
           </div>
           <div>
-            <p class="c_cell1">運営されている事業所数<span class="hissu">必須</span></p>
+            <p class="c_cell1">想定利用ユーザー数<span class="hissu">必須</span></p>
             <div class="c_cell2">
               <input type='text' id='LEADCF51' name='LEADCF51' maxlength='9' class="manfieldbdr size"></input>
             </div>
@@ -256,52 +290,58 @@
             <p class="c_cell1">ご利用中の<br>シフト作成システム<span class="hissu">必須</span></p>
             <div class="c_cell2">
               <select class="manfieldbdr size" id='LEADCF13' name='LEADCF13'  >
-                <option value='-None-'>-None-</option>
+                <option value=''></option>
                 <option value="あり">あり</option>
                 <option value="なし">なし</option>
               </select>
+              <div><span class="c_cell2_help">ご紹介先の法人様がすでにご利用中のシフト作成システムがあれば「あり」、そうでない場合は「なし」を選択してください。</span></div>
             </div>
           </div>
           <div class="js-LEADCF12" style="display: none;">
             <p class="c_cell1">シフト作成システム</p>
             <div class="c_cell2">
               <input type='text' id='LEADCF12' name='LEADCF12' maxlength='255' class="manfieldbdr size"></input>
+              <div><span class="c_cell2_help">ご利用中のシフト作成システムで「あり」を選択した場合、導入しているシフト作成システムの名称を記載してください。</span></div>
             </div>
           </div>
           <div>
             <p class="c_cell1">ご利用中の勤怠システム<span class="hissu">必須</span></p>
             <div class="c_cell2">
               <select class="manfieldbdr size" id='LEADCF9' name='LEADCF9'  >
-                <option value='-None-'>-None-</option>
+                <option value=''></option>
                 <option value="あり">あり</option>
                 <option value="なし">なし</option>
               </select>
+              <div><span class="c_cell2_help">打刻機能を伴い、勤怠実績を集計するシステムを導入している場合は「あり」、そうでない場合は「なし」を選択してください。</span></div>
             </div>
           </div>
           <div class="js-LEADCF10" style="display: none;">
             <p class="c_cell1">勤怠システムの<br>ご利用予定<span class="hissu">必須</span></p>
             <div class="c_cell2">
               <select class="manfieldbdr size" id='LEADCF10' name='LEADCF10'  >
-                <option value='-None-'>-None-</option>
+                <option value=''></option>
                 <option value="あり">あり</option>
                 <option value="なし">なし</option>
               </select>
+              <div><span class="c_cell2_help">現状導入していないが、導入予定がある場合は「あり」、今後も導入予定がない場合は「なし」を選択してください。</span></div>
             </div>
           </div>
           <div class="js-LEADCF11" style="display: none;">
             <p class="c_cell1">勤怠システム名</p>
             <div class="c_cell2">
               <select class="manfieldbdr size" id='LEADCF11' name='LEADCF11'  >
-                <option value='-None-'>-None-</option>
+                <option value=''></option>
                 <option value="HRMOS（ハーモス）勤怠">HRMOS（ハーモス）勤怠</option>
                 <option value='その他'>その他</option>
               </select>
+              <div><span class="c_cell2_help">利用中、または利用予定の勤怠システムを選択してください。</span></div>
             </div>
           </div>
         <div class="js-LEADCF7" style="display: none;">
           <p class="c_cell1">勤怠システム</p>
           <div class="c_cell2">
             <input type='text' id='LEADCF7' name='LEADCF7' maxlength='255' class="manfieldbdr size"></input>
+            <div><span class="c_cell2_help">勤怠システム名で「その他」を選択した場合、導入している勤怠システムの名称を記載してください。</span></div>
           </div>
         </div>
 
@@ -311,7 +351,7 @@
           </div>
           <div class="c_cell2">
             <select class="manfieldbdr size" id='Lead_Status' name='Lead Status'  >
-              <option value='-None-'>-None-</option>
+              <option value=''></option>
               <option value='&#x4eee;&#x767b;&#x9332;'>&#x4eee;&#x767b;&#x9332;</option>
               <option value='&#x672c;&#x767b;&#x9332;'>&#x672c;&#x767b;&#x9332;</option>
               <option value='&#x8cc7;&#x6599;&#x8acb;&#x6c42;'>&#x8cc7;&#x6599;&#x8acb;&#x6c42;</option>
@@ -334,7 +374,7 @@
           </div>
           <div class="c_cell2">
             <select class="manfieldbdr size" id='Lead_Source' name='Lead Source'  >
-              <option value='-None-'>-None-</option>
+              <option value=''></option>
               <option value='&#x5e83;&#x544a;'>&#x5e83;&#x544a;</option>
               <option value='&#x96fb;&#x8a71;&#x55b6;&#x696d;&#xff08;&#x30b3;&#x30fc;&#x30eb;&#x30c9;&#x30b3;&#x30fc;&#x30eb;&#xff09;'>&#x96fb;&#x8a71;&#x55b6;&#x696d;&#xff08;&#x30b3;&#x30fc;&#x30eb;&#x30c9;&#x30b3;&#x30fc;&#x30eb;&#xff09;</option>
               <option value='&#x5f93;&#x696d;&#x54e1;&#x304b;&#x3089;&#x306e;&#x7d39;&#x4ecb;'>&#x5f93;&#x696d;&#x54e1;&#x304b;&#x3089;&#x306e;&#x7d39;&#x4ecb;</option>
