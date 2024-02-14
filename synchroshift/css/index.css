@@ -1711,6 +1711,10 @@ header.DownMove {
   margin-top: 25px;
 }
 
+.plan_notice {
+  margin: 14px 0 0 32px;
+}
+
 /*********/
 .plan_midashi {
   text-align: center;
@@ -2932,6 +2936,9 @@ input[type="file"]::-webkit-file-upload-button {
   .plan_table tr:nth-child(1) th, .plan_table tr:nth-child(1) td {
     font-size: 20px;
     padding: 30px 2px;
+  }
+  .plan_notice {
+    margin: 6px 0 0 0;
   }
   .to_contact_sm a {
     font-size: 15px;
