@@ -217,12 +217,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         };
       })();
       var zsWebFormMandatoryFields = new Array(
+        "所属組織",
         "Contact Name",
         "First Name",
         "Email",
         "Subject"
       );
       var zsFieldsDisplayLabelArray = new Array(
+        "会社名",
         "姓",
         "名",
         "メールアドレス",
@@ -858,6 +860,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     value='https&#x3a;&#x2f;&#x2f;synchroseries.jp&#x2f;synchroshift&#x2f;contact_thanks.html'
                   />
                     <div class="contact_form">
+                        <div>
+                            <p class="c_cell1">会社名<span class="hissu">必須</span></p>
+                            <div class="c_cell2">
+                                <input
+                                  type="text"
+                                  maxlength="120"
+                                  name="所属組織"
+                                  class="manfieldbdr size"
+                                />
+                            </div>
+                        </div>
                         <div>
                             <p class="c_cell1">姓<span class="hissu">必須</span></p>
                             <div class="c_cell2">
