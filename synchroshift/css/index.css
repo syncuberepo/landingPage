@@ -1928,7 +1928,7 @@ input[type="file"]::-webkit-file-upload-button {
 
 .f_nav {
   width: calc(100% - 420px);
-  max-width: 560px;
+  max-width: 720px;
   display: flex;
   justify-content: flex-end;
   padding-bottom: 30px;
