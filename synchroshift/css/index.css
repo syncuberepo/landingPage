@@ -1770,11 +1770,15 @@ header.DownMove {
   font-size: 70px;
 }
 
-.plan_img_list {
+/* .plan_img_list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 80px;
   row-gap: 80px;
+} */
+.plan_img_list {
+  width: fit-content;
+  margin: 50px auto 0;
 }
 
 /************/
