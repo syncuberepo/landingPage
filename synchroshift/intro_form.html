@@ -35,127 +35,106 @@
       }
     </style>
     <script src="https://d17nz991552y2g.cloudfront.net/app/js/jqueryandencoder.ffa5afd5124fbedceea9.js"></script>
-    <script>
-      function privacyAlert5302731000037999024() {
-        var privacyTool = document.getElementById('privacyTool5302731000037999024');
-        var privacyErr = document.getElementById('privacyErr5302731000037999024');
-        if (privacyTool !=undefined && !privacyTool.checked) {
-          privacyErr.style.visibility='visible';
-          privacyTool.focus();
-          return false;
-        }
-        return true;
-      }
-      function disableErr5302731000037999024() {
-        var privacyTool = document.getElementById('privacyTool5302731000037999024');
-        var privacyErr = document.getElementById('privacyErr5302731000037999024');
-        if (privacyTool !=undefined && privacyTool.checked && privacyErr !=undefined ){
-          privacyErr.style.visibility='hidden';
-        }
-      }
+	<script>
+		function addAriaSelected5302731000074687060()
+		{
+			var optionElem = event.target;
+			var previousSelectedOption=optionElem.querySelector('[aria-selected=true]');
+			if(previousSelectedOption){
+				previousSelectedOption.removeAttribute('aria-selected');
+			}
+			optionElem.querySelectorAll('option')[optionElem.selectedIndex].ariaSelected='true';
+		}
+		function privacyAlert5302731000074687060()
+		{
+			var privacyTool = document.getElementById('privacyTool5302731000074687060');
+			var privacyErr = document.getElementById('privacyErr5302731000074687060');
+			if(privacyTool !=undefined && !privacyTool.checked )
+			{
+				privacyErr.style.visibility='visible';
+				privacyTool.ariaInvalid='true';
+				privacyTool.focus();
+				return false;
+			}
+			return true;
+		}
+		function disableErr5302731000074687060()
+		{
+			var privacyTool = document.getElementById('privacyTool5302731000074687060');
+			var privacyErr = document.getElementById('privacyErr5302731000074687060');
+			if(privacyTool !=undefined && privacyTool.checked && privacyErr !=undefined )
+			{
+				privacyErr.style.visibility='hidden';
+				privacyTool.ariaInvalid='false';
+			}
+		}
 
-      function checkMandatory5302731000037999024() {
-        var mndFileds = new Array('Company','First Name','Last Name','Designation','Email','Phone','Street','City','State','LEADCF9','LEADCF10','LEADCF13','LEADCF14','LEADCF15','LEADCF16','LEADCF51');
-        var fldLangVal = new Array('\u3054\u7D39\u4ECB\u3044\u305F\u3060\u304F\u6CD5\u4EBA\u540D','\u3054\u7D39\u4ECB\u3044\u305F\u3060\u304F\u304A\u76F8\u624B\u306E\uFF08\u540D\uFF09','\u3054\u7D39\u4ECB\u3044\u305F\u3060\u304F\u304A\u76F8\u624B\u306E\uFF08\u59D3\uFF09','\u3054\u7D39\u4ECB\u3044\u305F\u3060\u304F\u304A\u76F8\u624B\u306E\u5F79\u8077','\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9','\u96FB\u8A71\u756A\u53F7','\u3054\u7D39\u4ECB\u3044\u305F\u3060\u304F\u6CD5\u4EBA\u306E\u4F4F\u6240\uFF08\u753A\u540D\u30FB\u756A\u5730\uFF09','\u3054\u7D39\u4ECB\u3044\u305F\u3060\u304F\u6CD5\u4EBA\u306E\u4F4F\u6240\uFF08\u5E02\u533A\u753A\u6751\uFF09','\u3054\u7D39\u4ECB\u3044\u305F\u3060\u304F\u6CD5\u4EBA\u306E\u4F4F\u6240\uFF08\u90FD\u9053\u5E9C\u770C\uFF09','\u3054\u5229\u7528\u4E2D\u306E\u52E4\u6020\u30B7\u30B9\u30C6\u30E0','\u52E4\u6020\u30B7\u30B9\u30C6\u30E0\u306E\u3054\u5229\u7528\u4E88\u5B9A','\u30B7\u30D5\u30C8\u4F5C\u6210\u30B7\u30B9\u30C6\u30E0','\u3054\u5229\u7528\u4E2D\u306E\u30B7\u30D5\u30C8\u4F5C\u6210\u30B7\u30B9\u30C6\u30E0','\u904B\u55B6\u3055\u308C\u3066\u3044\u308B\u4E8B\u696D\u6240\u6570');
-        for (i=0; i<mndFileds.length; i++) {
-          var fieldObj=document.forms['WebToLeads5302731000037999024'][mndFileds[i]];
-          if (fieldObj) {
-            if (((fieldObj.value).replace(/^\s+|\s+$/g, '')).length==0) {
-              if (fieldObj.type =='file') {
-                alert('アップロードするファイルを選択してください。');
-                fieldObj.focus();
-                return false;
-              }
-              alert(fldLangVal[i] +' は入力必須です。');
-              fieldObj.focus();
-              return false;
-            } else if (fieldObj.nodeName=='SELECT') {
-              if (fieldObj.options[fieldObj.selectedIndex].value=="") {
-                alert(fldLangVal[i] +' は入力必須です。');
-                fieldObj.focus();
-                return false;
-              }
-            } else if (fieldObj.type =='checkbox') {
-              if (fieldObj.checked == false) {
-                alert('Please accept  '+fldLangVal[i]);
-                fieldObj.focus();
-                return false;
-              }
-            }
-            try {
-              if (fieldObj.name == 'Last Name') {
-                name = fieldObj.value;
-              }
-            } catch (e) {}
-          }
-        }
-        if (!privacyAlert5302731000037999024()) {return false;}
+	function checkMandatory5302731000074687060() {
+		var mndFileds = new Array('Company','First Name','Last Name','State','LEADCF51','LEADCF15','LEADCF16','LEADCF22');
+		var fldLangVal = new Array('\u6CD5\u4EBA\u540D','\u6CD5\u4EBA\u306E\u3054\u62C5\u5F53\u8005\uFF08\u540D\uFF09','\u6CD5\u4EBA\u306E\u3054\u62C5\u5F53\u8005\uFF08\u59D3\uFF09','\u6CD5\u4EBA\u306E\u4F4F\u6240\uFF08\u90FD\u9053\u5E9C\u770C\uFF09','\u5229\u7528\u30E6\u30FC\u30B6\u30FC\u6570','\u4EE3\u7406\u5E97\u62C5\u5F53\u8005\u540D','\u4EE3\u7406\u5E97\u540D','\u5229\u7528\u958B\u59CB\u5E74\u6708');
+		for(i=0;i<mndFileds.length;i++) {
+		  var fieldObj=document.forms['WebToLeads5302731000074687060'][mndFileds[i]];
+		  if(fieldObj) {
+			if (((fieldObj.value).replace(/^\s+|\s+$/g, '')).length==0) {
+			 if(fieldObj.type =='file')
+				{
+				 alert('アップロードするファイルを選択してください。');
+				 fieldObj.focus();
+				 return false;
+				}
+			alert(fldLangVal[i] +' は入力必須です。');
+   	   	  	  fieldObj.focus();
+   	   	  	  return false;
+			}  else if(fieldObj.nodeName=='SELECT') {
+  	   	   	 if(fieldObj.options[fieldObj.selectedIndex].value=='-None-') {
+				alert(fldLangVal[i] +' は入力必須です。');
+				fieldObj.focus();
+				return false;
+			   }
+			} else if(fieldObj.type =='checkbox'){
+ 	 	 	 if(fieldObj.checked == false){
+				alert('Please accept  '+fldLangVal[i]);
+				fieldObj.focus();
+				return false;
+			   }
+			 }
+			 try {
+			     if(fieldObj.name == 'Last Name') {
+				name = fieldObj.value;
+ 	 	 	    }
+			} catch (e) {}
+		    }
+		}
+		if(!privacyAlert5302731000074687060()){return false;}
 
-        var urlparams = new URLSearchParams( window.location.search);
-        if (urlparams.has('service') && (urlparams.get('service') === 'smarturl')) {
-          var webform = document.getElementById('webform');
-          var service =  urlparams.get('service');
-          var smarturlfield = document.createElement('input');
-          smarturlfield.setAttribute('type','hidden');
-          smarturlfield.setAttribute('value',service);
-          smarturlfield.setAttribute('name','service');
-          webform.appendChild(smarturlfield);
-        }
-        document.querySelector('.crmWebToEntityForm .formsubmit').setAttribute('disabled', true);
-      }
+	var urlparams = new URLSearchParams( window.location.search);
+	if(urlparams.has('service') && (urlparams.get('service')==='smarturl')){
+		var webform = document.getElementById('webform5302731000074687060');
+		 var service =  urlparams.get('service');
+		var smarturlfield = document.createElement('input');
+		smarturlfield.setAttribute('type','hidden');
+		smarturlfield.setAttribute('value',service);
+		smarturlfield.setAttribute('name','service');
+		webform.appendChild(smarturlfield);
+	}
 
-      function tooltipShow5302731000037999024(el) {
-        var tooltip = el.nextElementSibling;
-        var tooltipDisplay = tooltip.style.display;
-        if (tooltipDisplay == 'none') {
-          var allTooltip = document.getElementsByClassName('zcwf_tooltip_over');
-          for (i=0; i<allTooltip.length; i++) {
-            allTooltip[i].style.display='none';
-          }
-          tooltip.style.display = 'block';
-        } else {
-          tooltip.style.display='none';
-        }
-      }
-    </script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        function displayElement(selector, shouldDisplay) {
-          const element = document.querySelector(selector);
-          element.classList.toggle('pc-flex-sp-block', shouldDisplay);
-        }
-        // 'LEADCF13'の変更を監視し、対応する要素のクラスを切り替え
-        document.getElementById('LEADCF13').addEventListener('change', function () {
-          displayElement('.js-LEADCF12', this.value === 'あり');
-        });
+		document.querySelector('.crmWebToEntityForm .formsubmit').setAttribute('disabled', true);
+	}
 
-        document.getElementById('LEADCF9').addEventListener('change', function () {
-          // 「勤怠システムのご利用予定」を非表示にする
-          displayElement('.js-LEADCF10', false);
-          // 「勤怠システム名」を非表示にする
-          displayElement('.js-LEADCF11', false);
-          // 「勤怠システム」を非表示にする
-          displayElement('.js-LEADCF7', false);
+function tooltipShow5302731000074687060(el){
+	var tooltip = el.nextElementSibling;
+	var tooltipDisplay = tooltip.style.display;
+	if(tooltipDisplay == 'none'){
+		var allTooltip = document.getElementsByClassName('zcwf_tooltip_over');
+		for(i=0; i<allTooltip.length; i++){
+			allTooltip[i].style.display='none';
+		}
+		tooltip.style.display = 'block';
+	}else{
+		tooltip.style.display='none';
+	}
+}
 
-          if (this.value === 'あり') {
-            // 「勤怠システム名」を表示
-            displayElement('.js-LEADCF11', true);
-          } else if (this.value === 'なし') {
-            // 「勤怠システムのご利用予定」を表示
-            displayElement('.js-LEADCF10', true);
-          }
-        });
-
-        document.getElementById('LEADCF10').addEventListener('change', function () {
-          // 「勤怠システム名」の表示を切り替える
-          displayElement('.js-LEADCF11', this.value === 'あり');
-        });
-
-        document.getElementById('LEADCF11').addEventListener('change', function () {
-          // 「その他」が選択された場合にのみ、「勤怠システム」を表示
-          displayElement('.js-LEADCF7', this.value === 'その他');
-        });
-      });
     </script>
   </head>
   <body>
@@ -197,63 +176,18 @@
 
         <div id='crmWebToEntityForm' class='contact_box zsFormClass mt-50 spmt-30'>
 
-          <form id='webform' action='https://crm.zoho.com/crm/WebToLeadForm' name=WebToLeads5302731000037999024 method='POST' onSubmit='javascript:document.charset="UTF-8"; return checkMandatory5302731000037999024()' accept-charset='UTF-8'>
-          <input type='text' style='display:none;' name='xnQsjsdp' value='4ec5cb78bd6d2a7127ad3c4ff26ef4fba760f94fcf9bbad2796351390b15f258'></input>
+          <form id='webform5302731000074687060' action='https://crm.zoho.com/crm/WebToLeadForm' name=WebToLeads5302731000074687060 method='POST' onSubmit='javascript:document.charset="UTF-8"; return checkMandatory5302731000074687060()' accept-charset='UTF-8'>
+          <input type='text' style='display:none;' name='xnQsjsdp' value='559bf0655c028e2e77fead33782fb884808c66a051786a224d6858b5c340dd17'></input>
           <input type='hidden' name='zc_gad' id='zc_gad' value=''></input>
-          <input type='text' style='display:none;' name='xmIwtLD' value='a401922ce911a954b270da04912a7ec127ad04d016c8acd0080264254e6d8e201d66feec748d7bc0315bd4885c541b2f'></input>
-          <input type='text' style='display:none;' name='actionType' value='TGVhZHM='></input>
+          <input type='text' style='display:none;' name='xmIwtLD' value='ce5793fc66c2c015b67d71cea0c7cd86bfe36a4d9e8f52555d0d497fbc30646449b6959e84d973a68562b89b5a48b3f4'></input>
+          <input type='text'  style='display:none;' name='actionType' value='TGVhZHM='></input>
           <input type='text' style='display:none;' name='returnURL' value='https&#x3a;&#x2f;&#x2f;synchroseries.jp&#x2f;synchroshift&#x2f;intro_thanks.html' > </input>
           <div class="contact_form">
-          <div>
-            <p class="c_cell1">ご紹介会社名<span class="hissu">必須</span></p>
-            <div class="c_cell2">
-              <input type='text' id='LEADCF16' name='LEADCF16' maxlength='200' class="manfieldbdr size"></input>
-              <div><span class="c_cell2_help">パートナー様の企業名を記載してください。</span></div>
-            </div>
-          </div>
-          <div>
-            <p class="c_cell1">ご紹介者名<span class="hissu">必須</span></p>
-            <div class="c_cell2">
-              <input type='text' id='LEADCF15' name='LEADCF15' maxlength='200' class="manfieldbdr size"></input>
-              <div><span class="c_cell2_help">パートナー様の氏名を記載してください。</span></div>
-            </div>
-          </div>
-          <div>
-            <p class="c_cell1">ご紹介者メールアドレス<span class="hissu">必須</span></p>
-            <div class="c_cell2">
-              <input type='text' id='LEADCF14' name='LEADCF14' maxlength='255' class="manfieldbdr size"></input>
-              <div><span class="c_cell2_help">パートナー様のメールアドレスを記載してください。</span></div>
-            </div>
-          </div>
           <div>
             <p class="c_cell1">法人名<span class="hissu">必須</span></p>
             <div class="c_cell2">
               <input type='text' id='Company' name='Company' maxlength='200' class="manfieldbdr size"></input>
               <div><span class="c_cell2_help">ご紹介先の法人名を記載してください。</span></div>
-            </div>
-          </div>
-          <div>
-            <p class="c_cell1">法人の住所（都道府県）<span class="hissu">必須</span></p>
-            <div class="c_cell2">
-              <input type='text' id='State' name='State' maxlength='100' class="manfieldbdr size"></input>
-            </div>
-          </div>
-          <div>
-            <p class="c_cell1">法人の住所（市区町村）<span class="hissu">必須</span></p>
-            <div class="c_cell2">
-              <input type='text' id='City' name='City' maxlength='100' class="manfieldbdr size"></input>
-            </div>
-          </div>
-          <div>
-            <p class="c_cell1">法人の住所（町名・番地）<span class="hissu">必須</span></p>
-            <div class="c_cell2">
-              <input type='text' id='Street' name='Street' maxlength='250' class="manfieldbdr size"></input>
-            </div>
-          </div>
-          <div>
-            <p class="c_cell1">想定利用ユーザー数<span class="hissu">必須</span></p>
-            <div class="c_cell2">
-              <input type='text' id='LEADCF51' name='LEADCF51' maxlength='9' class="manfieldbdr size"></input>
             </div>
           </div>
           <div>
@@ -269,136 +203,116 @@
             </div>
           </div>
           <div>
-            <p class="c_cell1">ご担当者の役職<span class="hissu">必須</span></p>
+            <p class="c_cell1">法人の住所（都道府県）<span class="hissu">必須</span></p>
             <div class="c_cell2">
-              <input type='text' id='Designation' name='Designation' maxlength='100' class="manfieldbdr size"></input>
+              <input type='text' id='State' name='State' maxlength='100' class="manfieldbdr size"></input>
             </div>
           </div>
           <div>
-            <p class="c_cell1">メールアドレス<span class="hissu">必須</span></p>
+            <p class="c_cell1">想定利用ユーザー数<span class="hissu">必須</span></p>
             <div class="c_cell2">
-              <input type='text' ftype='email' autocomplete='false' id='Email' name='Email' crmlabel='' maxlength='100' class="manfieldbdr size"></input>
+              <input type='text' id='LEADCF51' name='LEADCF51' maxlength='9' class="manfieldbdr size"></input>
+              <div><span class="c_cell2_help">ユーザー数は10名以上5名単位です。ユーザー数を超えての職員登録（休職者、退職者はユーザー数から除く）はできません。代理店から受領された見積書よりユーザー数が増える場合は代理店に再見積もりをご依頼ください。</span></div>
             </div>
           </div>
           <div>
-            <p class="c_cell1">電話番号<span class="hissu">必須</span></p>
+            <p class="c_cell1">代理店名<span class="hissu">必須</span></p>
             <div class="c_cell2">
-              <input type='text' id='Phone' name='Phone' maxlength='30' class="manfieldbdr size"></input>
+              <input type='text' id='LEADCF16' name='LEADCF16' maxlength='200' class="manfieldbdr size"></input>
             </div>
           </div>
           <div>
-            <p class="c_cell1">ご利用中の<br>シフト作成システム<span class="hissu">必須</span></p>
+            <p class="c_cell1">代理店担当者名<span class="hissu">必須</span></p>
             <div class="c_cell2">
-              <select class="manfieldbdr size" id='LEADCF13' name='LEADCF13'  >
-                <option value=''></option>
-                <option value="あり">あり</option>
-                <option value="なし">なし</option>
-              </select>
-              <div><span class="c_cell2_help">ご紹介先の法人様がすでにご利用中のシフト作成システムがあれば「あり」、そうでない場合は「なし」を選択してください。</span></div>
-            </div>
-          </div>
-          <div class="js-LEADCF12" style="display: none;">
-            <p class="c_cell1">シフト作成システム</p>
-            <div class="c_cell2">
-              <input type='text' id='LEADCF12' name='LEADCF12' maxlength='255' class="manfieldbdr size"></input>
-              <div><span class="c_cell2_help">ご利用中のシフト作成システムで「あり」を選択した場合、導入しているシフト作成システムの名称を記載してください。</span></div>
+              <input type='text' id='LEADCF15' name='LEADCF15' maxlength='200' class="manfieldbdr size"></input>
             </div>
           </div>
           <div>
-            <p class="c_cell1">ご利用中の勤怠システム<span class="hissu">必須</span></p>
+            <p class="c_cell1">利用開始年月<span class="hissu">必須</span></p>
             <div class="c_cell2">
-              <select class="manfieldbdr size" id='LEADCF9' name='LEADCF9'  >
-                <option value=''></option>
-                <option value="あり">あり</option>
-                <option value="なし">なし</option>
-              </select>
-              <div><span class="c_cell2_help">打刻機能を伴い、勤怠実績を集計するシステムを導入している場合は「あり」、そうでない場合は「なし」を選択してください。</span></div>
+              <input type='text' id='LEADCF22' name='LEADCF22' maxlength='255' class="manfieldbdr size"></input>
+              <div><span class="c_cell2_help">YYYY/MM（例、2024/12）を半角で入力してください。</span></div>
             </div>
           </div>
-          <div class="js-LEADCF10" style="display: none;">
-            <p class="c_cell1">勤怠システムの<br>ご利用予定<span class="hissu">必須</span></p>
-            <div class="c_cell2">
-              <select class="manfieldbdr size" id='LEADCF10' name='LEADCF10'  >
-                <option value=''></option>
-                <option value="あり">あり</option>
-                <option value="なし">なし</option>
-              </select>
-              <div><span class="c_cell2_help">現状導入していないが、導入予定がある場合は「あり」、今後も導入予定がない場合は「なし」を選択してください。</span></div>
-            </div>
-          </div>
-          <div class="js-LEADCF11" style="display: none;">
-            <p class="c_cell1">勤怠システム名</p>
-            <div class="c_cell2">
-              <select class="manfieldbdr size" id='LEADCF11' name='LEADCF11'  >
-                <option value=''></option>
-                <option value="HRMOS（ハーモス）勤怠">HRMOS（ハーモス）勤怠</option>
-                <option value='その他'>その他</option>
-              </select>
-              <div><span class="c_cell2_help">利用中、または利用予定の勤怠システムを選択してください。</span></div>
-            </div>
-          </div>
-        <div class="js-LEADCF7" style="display: none;">
-          <p class="c_cell1">勤怠システム</p>
-          <div class="c_cell2">
-            <input type='text' id='LEADCF7' name='LEADCF7' maxlength='255' class="manfieldbdr size"></input>
-            <div><span class="c_cell2_help">勤怠システム名で「その他」を選択した場合、導入している勤怠システムの名称を記載してください。</span></div>
-          </div>
-        </div>
 
         <div style="display: none;">
           <div class='zcwf_col_lab' style='font-size:12px; font-family: Arial;'>
-            <label for='Lead_Status'>&#x898b;&#x8fbc;&#x307f;&#x5ba2;&#x30b9;&#x30c6;&#x30fc;&#x30bf;&#x30b9;</label>
+            <label for='Lead_Status'>見込み客ステータス</label>
           </div>
           <div class="c_cell2">
             <select class="manfieldbdr size" id='Lead_Status' name='Lead Status'  >
-              <option value=''></option>
-              <option value='&#x4eee;&#x767b;&#x9332;'>&#x4eee;&#x767b;&#x9332;</option>
-              <option value='&#x672c;&#x767b;&#x9332;'>&#x672c;&#x767b;&#x9332;</option>
-              <option value='&#x8cc7;&#x6599;&#x8acb;&#x6c42;'>&#x8cc7;&#x6599;&#x8acb;&#x6c42;</option>
-              <option selected value='&#x7d39;&#x4ecb;'>&#x7d39;&#x4ecb;</option>
-              <option value='&#x9023;&#x7d61;&#x6e08;&#x307f;&#xff08;&#x4e0d;&#x5728;&#xff09;'>&#x9023;&#x7d61;&#x6e08;&#x307f;&#xff08;&#x4e0d;&#x5728;&#xff09;</option>
-              <option value='&#x5bfe;&#x5fdc;&#x4e88;&#x5b9a;'>&#x5bfe;&#x5fdc;&#x4e88;&#x5b9a;</option>
-              <option value='&#x9023;&#x7d61;&#x6e08;&#x307f;&#xff08;&#x5230;&#x9054;&#xff09;'>&#x9023;&#x7d61;&#x6e08;&#x307f;&#xff08;&#x5230;&#x9054;&#xff09;</option>
-              <option value='&#x7121;&#x52b9;'>&#x7121;&#x52b9;</option>
-              <option value='&#x5931;&#x6ce8;'>&#x5931;&#x6ce8;</option>
-              <option value='&#x672a;&#x9023;&#x7d61;'>&#x672a;&#x9023;&#x7d61;</option>
-              <option value='&#x898b;&#x8fbc;&#x307f;&#x3042;&#x308a;'>&#x898b;&#x8fbc;&#x307f;&#x3042;&#x308a;</option>
-              <option value='&#x7cbe;&#x67fb;&#x6e08;&#x307f;&#xff08;&#x5bfe;&#x8c61;&#x5916;&#xff09;'>&#x7cbe;&#x67fb;&#x6e08;&#x307f;&#xff08;&#x5bfe;&#x8c61;&#x5916;&#xff09;</option>
-              <option value='&#x7cbe;&#x67fb;&#x524d;'>&#x7cbe;&#x67fb;&#x524d;</option>
+              <option value='-None-'>-None-</option>
+              <option value='仮登録'>仮登録</option>
+              <option value='本登録'>本登録</option>
+              <option value='資料請求'>資料請求</option>
+              <option value='デモ'>デモ</option>
+              <option selected value='紹介'>紹介</option>
+              <option value='先行受付'>先行受付</option>
+              <option value='連絡済み（不在）'>連絡済み（不在）</option>
+              <option value='対応予定'>対応予定</option>
+              <option value='連絡済み（到達）'>連絡済み（到達）</option>
+              <option value='無効'>無効</option>
+              <option value='失注'>失注</option>
+              <option value='未連絡'>未連絡</option>
+              <option value='見込みあり'>見込みあり</option>
+              <option value='精査済み（対象外）'>精査済み（対象外）</option>
+              <option value='精査前'>精査前</option>
             </select>
           </div>
         </div>
         <div style="display: none;">
           <div class='zcwf_col_lab'>
-            <label for='Lead_Source'>&#x898b;&#x8fbc;&#x307f;&#x5ba2;&#x306e;&#x30c7;&#x30fc;&#x30bf;&#x5143;</label>
+            <label for='Lead_Source'>見込み客のデータ元</label>
           </div>
           <div class="c_cell2">
             <select class="manfieldbdr size" id='Lead_Source' name='Lead Source'  >
-              <option value=''></option>
-              <option value='&#x5e83;&#x544a;'>&#x5e83;&#x544a;</option>
-              <option value='&#x96fb;&#x8a71;&#x55b6;&#x696d;&#xff08;&#x30b3;&#x30fc;&#x30eb;&#x30c9;&#x30b3;&#x30fc;&#x30eb;&#xff09;'>&#x96fb;&#x8a71;&#x55b6;&#x696d;&#xff08;&#x30b3;&#x30fc;&#x30eb;&#x30c9;&#x30b3;&#x30fc;&#x30eb;&#xff09;</option>
-              <option value='&#x5f93;&#x696d;&#x54e1;&#x304b;&#x3089;&#x306e;&#x7d39;&#x4ecb;'>&#x5f93;&#x696d;&#x54e1;&#x304b;&#x3089;&#x306e;&#x7d39;&#x4ecb;</option>
-              <option value='&#x5916;&#x90e8;&#x304b;&#x3089;&#x306e;&#x7d39;&#x4ecb;'>&#x5916;&#x90e8;&#x304b;&#x3089;&#x306e;&#x7d39;&#x4ecb;</option>
-              <option selected value='LP'>LP</option>
+              <option value='-None-'>-None-</option>
+              <option value='広告'>広告</option>
+              <option value='電話営業（コールドコール）'>電話営業（コールドコール）</option>
+              <option value='従業員からの紹介'>従業員からの紹介</option>
+              <option selected value='外部からの紹介'>外部からの紹介</option>
+              <option value='LP'>LP</option>
               <option value='HP'>HP</option>
               <option value='Twitter'>Twitter</option>
               <option value='Facebook'>Facebook</option>
-              <option value='&#x30d1;&#x30fc;&#x30c8;&#x30ca;&#x30fc;'>&#x30d1;&#x30fc;&#x30c8;&#x30ca;&#x30fc;</option>
-              <option value='Google&#x2b;'>Google&#x2b;</option>
-              <option value='&#x5e83;&#x5831;&#x6d3b;&#x52d5;'>&#x5e83;&#x5831;&#x6d3b;&#x52d5;</option>
-              <option value='&#x55b6;&#x696d;&#x30e1;&#x30fc;&#x30eb;'>&#x55b6;&#x696d;&#x30e1;&#x30fc;&#x30eb;</option>
-              <option value='&#x30d1;&#x30fc;&#x30c8;&#x30ca;&#x30fc;&#x30bb;&#x30df;&#x30ca;&#x30fc;'>&#x30d1;&#x30fc;&#x30c8;&#x30ca;&#x30fc;&#x30bb;&#x30df;&#x30ca;&#x30fc;</option>
-              <option value='&#x793e;&#x5185;&#x30bb;&#x30df;&#x30ca;&#x30fc;'>&#x793e;&#x5185;&#x30bb;&#x30df;&#x30ca;&#x30fc;</option>
-              <option value='&#x5c55;&#x793a;&#x4f1a;'>&#x5c55;&#x793a;&#x4f1a;</option>
-              <option value='Web&#x304b;&#x3089;&#x306e;&#x30c0;&#x30a6;&#x30f3;&#x30ed;&#x30fc;&#x30c9;'>Web&#x304b;&#x3089;&#x306e;&#x30c0;&#x30a6;&#x30f3;&#x30ed;&#x30fc;&#x30c9;</option>
-              <option value='Web&#x691c;&#x7d22;'>Web&#x691c;&#x7d22;</option>
-              <option value='&#x30c1;&#x30e3;&#x30c3;&#x30c8;'>&#x30c1;&#x30e3;&#x30c3;&#x30c8;</option>
-              <option value='&#x793e;&#x54e1;&#x304b;&#x3089;&#x306e;&#x7d39;&#x4ecb;'>&#x793e;&#x54e1;&#x304b;&#x3089;&#x306e;&#x7d39;&#x4ecb;</option>
+              <option value='パートナー'>パートナー</option>
+              <option value='Google+'>Google+</option>
+              <option value='広報活動'>広報活動</option>
+              <option value='営業メール'>営業メール</option>
+              <option value='パートナーセミナー'>パートナーセミナー</option>
+              <option value='社内セミナー'>社内セミナー</option>
+              <option value='展示会'>展示会</option>
+              <option value='Webからのダウンロード'>Webからのダウンロード</option>
+              <option value='Web検索'>Web検索</option>
+              <option value='チャット'>チャット</option>
+              <option value='社員からの紹介'>社員からの紹介</option>
             </select>
           </div>
         </div>
-        <!-- Do not remove this --- Analytics Tracking code starts -->
-        <script id='wf_anal' src='https://crm.zohopublic.com/crm/WebFormAnalyticsServeServlet?rid=0f5beebee1d982885efc23cb43e443f5ffd09536d76fbf75d0183e40c64385bcba6c3f31369cccc0c222efc8e90983e6gid1dc2919eca888554a0e13ee74a32e30edb3e35c86aef2a2a2359fdc012435d50gid004ecd35efd1386faf5e0e99416d6dbc98206038903d8c6abbb2ea43c3adb3d6gid3119dd41e144a0fa48ad17337af7bbd7da1e1dce7c8e31faf90c9d5e139d793d&tw=f4f45e96ba220e2cec117d8ee328d2dfd2590c99aab2bcdda147365c10bafad9'></script><!-- Do not remove this --- Analytics Tracking code ends. -->
+        <!-- Do not remove this --- Analytics Tracking code starts --><script id='wf_anal' src='https://crm.zohopublic.com/crm/WebFormAnalyticsServeServlet?rid=ba2cc7d2be9d2a8fe8f2f44b24bb79eae34c7814108fda3bf9318b86d0d6514cfbee7eaf1e94d6fc538ce12bc6ba2720gide5e9b477b7aa50c015c1452534a69d27b03f13d6b885c0c0a988bc315efd42d5gid4f30a608803065c190a178b8c53c1b078c0f54e9d3d47ce6aedc9b2b7cdb7710gidbeed18e345b9a8135e04e309d29bc6b5af31e4dbddbf5b12d9abe61b5cb81987&tw=736aa1c2cff10da3eb9c9863538a4a5a84e63c068d091de89c1344cc51185629'></script><!-- Do not remove this --- Analytics Tracking code ends. --></form>
+      </div>
+      <div class='zcwf_privacy' style='text-align: center; margin: 20px 0;'>
+        <div style='display: inline-block; text-align: left;'>
+          <div style='display: flex; align-items: center;'>
+            <input autocomplete='off'
+                   id='privacyTool5302731000074687060'
+                   type='checkbox'
+                   aria-checked='false'
+                   name=''
+                   aria-errormessage='privacyErr5302731000074687060'
+                   aria-label='privacyTool'
+                   onclick='disableErr5302731000074687060'
+                   style='margin-right: 5px;'>
+            <div class='zcwf_privacy_txt' style='font-size: 16px;font-family:Arial;color: black;'>
+              <a href='https://synchroseries.jp/synchroshift/privacypolicy.html' target='_blank'>プライバシーポリシー</a>と<a href='https://synchroseries.jp/synchroshift/terms.html' target='_blank'>利用規約</a>に同意します。
+            </div>
+          </div>
+          <div id='privacyErr5302731000074687060'
+               aria-live='polite'
+               style='font-size:12px;color:red;padding-left: 5px;visibility:hidden;'>
+            上記の内容に同意できることをご確認ください。
+          </div>
+        </div>
       </div>
       <div class="sub mt-60 spmt-40">
         <div class="sub_width h_flex">
