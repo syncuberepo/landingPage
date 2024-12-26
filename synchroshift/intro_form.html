@@ -35,107 +35,6 @@
       }
     </style>
     <script src="https://d17nz991552y2g.cloudfront.net/app/js/jqueryandencoder.ffa5afd5124fbedceea9.js"></script>
-	<script>
-		function addAriaSelected5302731000074687060()
-		{
-			var optionElem = event.target;
-			var previousSelectedOption=optionElem.querySelector('[aria-selected=true]');
-			if(previousSelectedOption){
-				previousSelectedOption.removeAttribute('aria-selected');
-			}
-			optionElem.querySelectorAll('option')[optionElem.selectedIndex].ariaSelected='true';
-		}
-		function privacyAlert5302731000074687060()
-		{
-			var privacyTool = document.getElementById('privacyTool5302731000074687060');
-			var privacyErr = document.getElementById('privacyErr5302731000074687060');
-			if(privacyTool !=undefined && !privacyTool.checked )
-			{
-				privacyErr.style.visibility='visible';
-				privacyTool.ariaInvalid='true';
-				privacyTool.focus();
-				return false;
-			}
-			return true;
-		}
-		function disableErr5302731000074687060()
-		{
-			var privacyTool = document.getElementById('privacyTool5302731000074687060');
-			var privacyErr = document.getElementById('privacyErr5302731000074687060');
-			if(privacyTool !=undefined && privacyTool.checked && privacyErr !=undefined )
-			{
-				privacyErr.style.visibility='hidden';
-				privacyTool.ariaInvalid='false';
-			}
-		}
-
-	function checkMandatory5302731000074687060() {
-		var mndFileds = new Array('Company','First Name','Last Name','State','LEADCF51','LEADCF15','LEADCF16','LEADCF22');
-		var fldLangVal = new Array('\u6CD5\u4EBA\u540D','\u6CD5\u4EBA\u306E\u3054\u62C5\u5F53\u8005\uFF08\u540D\uFF09','\u6CD5\u4EBA\u306E\u3054\u62C5\u5F53\u8005\uFF08\u59D3\uFF09','\u6CD5\u4EBA\u306E\u4F4F\u6240\uFF08\u90FD\u9053\u5E9C\u770C\uFF09','\u5229\u7528\u30E6\u30FC\u30B6\u30FC\u6570','\u4EE3\u7406\u5E97\u62C5\u5F53\u8005\u540D','\u4EE3\u7406\u5E97\u540D','\u5229\u7528\u958B\u59CB\u5E74\u6708');
-		for(i=0;i<mndFileds.length;i++) {
-		  var fieldObj=document.forms['WebToLeads5302731000074687060'][mndFileds[i]];
-		  if(fieldObj) {
-			if (((fieldObj.value).replace(/^\s+|\s+$/g, '')).length==0) {
-			 if(fieldObj.type =='file')
-				{
-				 alert('アップロードするファイルを選択してください。');
-				 fieldObj.focus();
-				 return false;
-				}
-			alert(fldLangVal[i] +' は入力必須です。');
-   	   	  	  fieldObj.focus();
-   	   	  	  return false;
-			}  else if(fieldObj.nodeName=='SELECT') {
-  	   	   	 if(fieldObj.options[fieldObj.selectedIndex].value=='-None-') {
-				alert(fldLangVal[i] +' は入力必須です。');
-				fieldObj.focus();
-				return false;
-			   }
-			} else if(fieldObj.type =='checkbox'){
- 	 	 	 if(fieldObj.checked == false){
-				alert('Please accept  '+fldLangVal[i]);
-				fieldObj.focus();
-				return false;
-			   }
-			 }
-			 try {
-			     if(fieldObj.name == 'Last Name') {
-				name = fieldObj.value;
- 	 	 	    }
-			} catch (e) {}
-		    }
-		}
-		if(!privacyAlert5302731000074687060()){return false;}
-
-	var urlparams = new URLSearchParams( window.location.search);
-	if(urlparams.has('service') && (urlparams.get('service')==='smarturl')){
-		var webform = document.getElementById('webform5302731000074687060');
-		 var service =  urlparams.get('service');
-		var smarturlfield = document.createElement('input');
-		smarturlfield.setAttribute('type','hidden');
-		smarturlfield.setAttribute('value',service);
-		smarturlfield.setAttribute('name','service');
-		webform.appendChild(smarturlfield);
-	}
-
-		document.querySelector('.crmWebToEntityForm .formsubmit').setAttribute('disabled', true);
-	}
-
-function tooltipShow5302731000074687060(el){
-	var tooltip = el.nextElementSibling;
-	var tooltipDisplay = tooltip.style.display;
-	if(tooltipDisplay == 'none'){
-		var allTooltip = document.getElementsByClassName('zcwf_tooltip_over');
-		for(i=0; i<allTooltip.length; i++){
-			allTooltip[i].style.display='none';
-		}
-		tooltip.style.display = 'block';
-	}else{
-		tooltip.style.display='none';
-	}
-}
-
-    </script>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -289,7 +188,6 @@ function tooltipShow5302731000074687060(el){
             </select>
           </div>
         </div>
-        <!-- Do not remove this --- Analytics Tracking code starts --><script id='wf_anal' src='https://crm.zohopublic.com/crm/WebFormAnalyticsServeServlet?rid=ba2cc7d2be9d2a8fe8f2f44b24bb79eae34c7814108fda3bf9318b86d0d6514cfbee7eaf1e94d6fc538ce12bc6ba2720gide5e9b477b7aa50c015c1452534a69d27b03f13d6b885c0c0a988bc315efd42d5gid4f30a608803065c190a178b8c53c1b078c0f54e9d3d47ce6aedc9b2b7cdb7710gidbeed18e345b9a8135e04e309d29bc6b5af31e4dbddbf5b12d9abe61b5cb81987&tw=736aa1c2cff10da3eb9c9863538a4a5a84e63c068d091de89c1344cc51185629'></script><!-- Do not remove this --- Analytics Tracking code ends. --></form>
       </div>
       <div class='zcwf_privacy' style='text-align: center; margin: 20px 0;'>
         <div style='display: inline-block; text-align: left;'>
@@ -366,5 +264,111 @@ function tooltipShow5302731000074687060(el){
 
     <script src="js/spmenu.js?ver1.3"></script>
     <script type="text/javascript" src="js/jsmin.js"></script>
+    <script>
+      function addAriaSelected5302731000074687060()
+      {
+        console.log('addAriaSelected5302731000074687060');
+        var optionElem = event.target;
+        var previousSelectedOption=optionElem.querySelector('[aria-selected=true]');
+        if(previousSelectedOption){
+          previousSelectedOption.removeAttribute('aria-selected');
+        }
+        optionElem.querySelectorAll('option')[optionElem.selectedIndex].ariaSelected='true';
+      }
+      function privacyAlert5302731000074687060()
+      {
+        console.log('privacyAlert5302731000074687060');
+        var privacyTool = document.getElementById('privacyTool5302731000074687060');
+        var privacyErr = document.getElementById('privacyErr5302731000074687060');
+        if(privacyTool !=undefined && !privacyTool.checked )
+        {
+          privacyErr.style.visibility='visible';
+          privacyTool.ariaInvalid='true';
+          privacyTool.focus();
+          return false;
+        }
+        return true;
+      }
+      function disableErr5302731000074687060()
+      {
+        console.log('disableErr5302731000074687060');
+        var privacyTool = document.getElementById('privacyTool5302731000074687060');
+        var privacyErr = document.getElementById('privacyErr5302731000074687060');
+        if(privacyTool !=undefined && privacyTool.checked && privacyErr !=undefined )
+        {
+          privacyErr.style.visibility='hidden';
+          privacyTool.ariaInvalid='false';
+        }
+      }
+
+    function checkMandatory5302731000074687060() {
+      console.log('checkMandatory5302731000074687060');
+      var mndFileds = new Array('Company','First Name','Last Name','State','LEADCF51','LEADCF15','LEADCF16','LEADCF22');
+      var fldLangVal = new Array('法人名','法人のご担当者（名）','法人のご担当者（姓）','法人の住所（都道府県）','利用ユーザー数','代理店担当者名','代理店名','利用開始年月');
+      for(i=0;i<mndFileds.length;i++) {
+        var fieldObj=document.forms['WebToLeads5302731000074687060'][mndFileds[i]];
+        if(fieldObj) {
+        if (((fieldObj.value).replace(/^\s+|\s+$/g, '')).length==0) {
+        if(fieldObj.type =='file')
+          {
+          alert('アップロードするファイルを選択してください。');
+          fieldObj.focus();
+          return false;
+          }
+        alert(fldLangVal[i] +' は入力必須です。');
+                fieldObj.focus();
+                return false;
+        }  else if(fieldObj.nodeName=='SELECT') {
+              if(fieldObj.options[fieldObj.selectedIndex].value=='-None-') {
+          alert(fldLangVal[i] +' は入力必須です。');
+          fieldObj.focus();
+          return false;
+          }
+        } else if(fieldObj.type =='checkbox'){
+        if(fieldObj.checked == false){
+          alert('Please accept  '+fldLangVal[i]);
+          fieldObj.focus();
+          return false;
+          }
+        }
+        try {
+            if(fieldObj.name == 'Last Name') {
+          name = fieldObj.value;
+            }
+        } catch (e) {}
+          }
+      }
+      if(!privacyAlert5302731000074687060()){return false;}
+
+    var urlparams = new URLSearchParams( window.location.search);
+    if(urlparams.has('service') && (urlparams.get('service')==='smarturl')){
+      var webform = document.getElementById('webform5302731000074687060');
+      var service =  urlparams.get('service');
+      var smarturlfield = document.createElement('input');
+      smarturlfield.setAttribute('type','hidden');
+      smarturlfield.setAttribute('value',service);
+      smarturlfield.setAttribute('name','service');
+      webform.appendChild(smarturlfield);
+    }
+
+      document.querySelector('.crmWebToEntityForm .formsubmit').setAttribute('disabled', true);
+    }
+
+  function tooltipShow5302731000074687060(el){
+    var tooltip = el.nextElementSibling;
+    var tooltipDisplay = tooltip.style.display;
+    if(tooltipDisplay == 'none'){
+      var allTooltip = document.getElementsByClassName('zcwf_tooltip_over');
+      for(i=0; i<allTooltip.length; i++){
+        allTooltip[i].style.display='none';
+      }
+      tooltip.style.display = 'block';
+    }else{
+      tooltip.style.display='none';
+    }
+  }
+
+    </script>
+    <!-- Do not remove this --- Analytics Tracking code starts --><script id='wf_anal' src='https://crm.zohopublic.com/crm/WebFormAnalyticsServeServlet?rid=ba2cc7d2be9d2a8fe8f2f44b24bb79eae34c7814108fda3bf9318b86d0d6514cfbee7eaf1e94d6fc538ce12bc6ba2720gide5e9b477b7aa50c015c1452534a69d27b03f13d6b885c0c0a988bc315efd42d5gid4f30a608803065c190a178b8c53c1b078c0f54e9d3d47ce6aedc9b2b7cdb7710gidbeed18e345b9a8135e04e309d29bc6b5af31e4dbddbf5b12d9abe61b5cb81987&tw=736aa1c2cff10da3eb9c9863538a4a5a84e63c068d091de89c1344cc51185629'></script><!-- Do not remove this --- Analytics Tracking code ends. -->
   </body>
 </html>
